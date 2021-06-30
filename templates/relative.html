@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% block head %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=initial-scale=1.0">
+	<title>{% block title %}Randomaizer{% endblock %}</title>
+	{% endblock %}
+</head>
+<body>
+	<h1 style="text-align:center;">Нажмите на кнопку чтобы узнать случайно сгенерированное число:</h1>
+	<form action="{{url_for('start_page_of_site')}}" method="POST">
+		<input type="text" name="range" style="display:block;margin-left:auto;margin-right: auto;" required>
+		<br>
+		<input type="submit" name="btn-primary" value="Нажми" style="display:block;margin-left:auto;margin-right: auto;">
+		{% if number %}
+			<p style="text-align:center;">Результат = {{number}}</p>
+		{% else %}
+			<p style="text-align:center;">{{number}}</p>
+		{% endif %}
+	</form>
+
+</body>
+</html>
